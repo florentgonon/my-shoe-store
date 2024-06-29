@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shoe: one
+  shop: one
+
+two:
+  shoe: two
+  shop: two
