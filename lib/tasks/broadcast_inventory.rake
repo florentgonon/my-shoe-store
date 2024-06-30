@@ -1,6 +1,5 @@
-# lib/tasks/broadcast_stock.rake
-namespace :stock do
-  desc "Broadcast stock changes"
+namespace :inventory do
+  desc "Broadcast inventory changes"
   task broadcast: :environment do
     require "json"
     STORE_STORES = ["ALDO Centre Eaton", "ALDO Destiny USA Mall", "ALDO Pheasant Lane Mall", "ALDO Holyoke Mall", "ALDO Maine Mall", "ALDO Crossgates Mall", "ALDO Burlington Mall", "ALDO Solomon Pond Mall", "ALDO Auburn Mall", "ALDO Waterloo Premium Outlets"]
@@ -15,7 +14,7 @@ namespace :stock do
           model: SHOES_MODELS.sample,
           inventory: INVENTORY.sample
         }
-        ActionCable.server.broadcast "stock_channel", data
+        ActionCable.server.broadcast "inventory_channel", data
       end
       sleep 1
     end

@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ShoeTest < ActiveSupport::TestCase
+class Stores::InventoriesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

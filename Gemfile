@@ -51,10 +51,14 @@ gem "bootsnap", require: false
 # ENV var
 gem "figaro"
 
+# Api Interface
+gem "activeresource"
+
+# To access http response object from result of ActiveResource::Base find method
+gem "activeresource-response", "~> 1.4"
+
 # Debug
 gem "pry-byebug"
-# Call 'byebug' anywhere in the code to stop execution and get a debugger console
-gem "byebug"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
