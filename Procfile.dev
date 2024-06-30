@@ -1,4 +1,4 @@
-web: rails server
+web: bin/rails server -p 3000
 css: bin/rails tailwindcss:watch
 redis: redis-server
 inventory_broadcaster: rails inventory:broadcast
