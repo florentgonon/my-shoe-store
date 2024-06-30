@@ -10,9 +10,13 @@ consumer.subscriptions.create("StockChannel", {
   },
 
   received(data) {
-    const inventoryElement = document.getElementById("inventory");
-    const newItem = document.createElement("div");
-    newItem.innerHTML = `Store: ${data.store}, Model: ${data.model}, Inventory: ${data.inventory}`;
-    inventoryElement.appendChild(newItem);
+    const list = document.getElementById("list");
+    const newItem = document.createElement("tr");
+    newItem.innerHTML = `
+      <td>${data.store}</td>
+      <td>${data.model}</td>
+      <td>${data.inventory}</td>
+    `;
+    list.appendChild(newItem);
   }
 });
