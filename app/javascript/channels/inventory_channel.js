@@ -10,6 +10,22 @@ consumer.subscriptions.create("InventoryChannel", {
   },
 
   received(data) {
+    fetch("/inventories", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').getAttribute("content")
+      },
+      body: JSON.stringify({ inventory: data })
+    })
+    .then(response => response.json())
+    .then(responseData => {
+      console.log("Success:", responseData);
+    })
+    .catch(error => {
+      console.error("Error:", error);
+    });
+    
     const list = document.getElementById("list");
     const newItem = document.createElement("tr");
     newItem.innerHTML = `
