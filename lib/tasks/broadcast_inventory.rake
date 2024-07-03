@@ -11,8 +11,8 @@ namespace :inventory do
       RANDOMNESS.sample.times do
         data = {
           store: STORE_STORES.sample,
-          model: SHOES_MODELS.sample,
-          inventory: INVENTORY.sample
+          shoe: SHOES_MODELS.sample,
+          stock: INVENTORY.sample
         }
         ActionCable.server.broadcast "inventory_channel", data
       end
