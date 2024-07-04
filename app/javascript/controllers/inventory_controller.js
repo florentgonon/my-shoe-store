@@ -1,12 +1,12 @@
 import { Controller } from "@hotwired/stimulus"
-import { updateInventory as updateInventoryFromUpdater } from '../components/inventory_updater'
+import { updateInventoryList as updateInventoryListFromUpdater } from '../components/inventory_updater'
 
 export default class extends Controller {
   connect() {
-    document.addEventListener("inventory-update", (event) => updateInventoryFromUpdater(event.detail));
+    document.addEventListener("inventory-update", (event) => updateInventoryListFromUpdater(event.detail));
   }
 
   disconnect() {
-    document.removeEventListener("inventory-update", (event) => updateInventoryFromUpdater(event.detail));
+    document.removeEventListener("inventory-update", (event) => updateInventoryListFromUpdater(event.detail));
   }
 }

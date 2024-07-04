@@ -9,8 +9,21 @@ consumer.subscriptions.create("InventoryChannel", {
     console.log("Disconnected from the inventory channel")
   },
 
-  received(data) {
-    const event = new CustomEvent("inventory-update", { detail: data });
-    document.dispatchEvent(event);
+  async received(data) {
+    try {
+      const response = await fetch("/inventories", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-Token": document.querySelector("meta[name='csrf-token']").getAttribute("content")
+        },
+        body: JSON.stringify({ inventory: data })
+      });
+      const updatedData = await response.json();
+      const event = new CustomEvent("inventory-update", { detail: updatedData });
+      document.dispatchEvent(event);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   }
 });

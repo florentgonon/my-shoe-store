@@ -1,20 +1,3 @@
-const updateInventory = async (event) => {
-  try {
-    const response = await fetch("/inventories", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "X-CSRF-Token": document.querySelector("meta[name='csrf-token']").getAttribute("content")
-      },
-      body: JSON.stringify({ inventory: event })
-    });
-    const updatedData = await response.json();
-    updateInventoryList(updatedData);
-  } catch (error) {
-    console.error("Error:", error);
-  }
-}
-
 const updateInventoryList = (data) => {
   const list = document.getElementById(`inventory-list-${data.store.name.toLowerCase().replace(/ /g, "-")}`);
   let item = list.querySelector(`tr[data-id="${data.id}"]`);
@@ -48,4 +31,4 @@ const updateItemStyle = (item, stock) => {
   item.className = stock == 0 ? "bg-light-coral" : (stock <= 10 ? "bg-gamboge" : "bg-jade");
 }
 
-export { updateInventory };
+export { updateInventoryList };
