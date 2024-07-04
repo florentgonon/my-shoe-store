@@ -1,29 +1,26 @@
 <div class="container mx-auto mt-20 px-5" data-controller="inventory">
-  <div>
-    <h1 class="mb-10 text-center text-xl font-bold underline decoration-2">Real Time Dashboard by Shop</h1>
-    <div>
-      <div class="bg-">
-      
-      </div>
-      <div>
-      
-      </div>
+  <div class="flex justify-evenly pb-12">
+    <div class="flex items-center">
+      <h1 class="text-center text-xl font-bold underline decoration-2">Real Time Dashboard by Shop</h1>
     </div>
+    <%= render partial: "color_code" %>
   </div>
   <div class="flex text-center grid grid-cols-3 gap-6">
     <% @stores.each do |store| %>
       <div>
-        <h2 class="mb-4"><%= store.name %></h2>
+        <h2 class="mb-4">
+          <%= link_to store.name, store_inventories_path(id: store.id) %>
+        </h2>
         <div class="mb-16 h-80 overflow-auto rounded-lg">
-          <table class="text-left w-full border-collapse">
+          <table class="text-left w-full border-collapse dropzone">
             <thead>
               <tr>
-                <th class="w-60 p-4 font-bold text-sm text-grey-dark border-b border-white">Inventory ID</th>
-                <th class="w-80 p-4 font-bold text-sm text-grey-dark border-b border-white">Shoe model</th>
-                <th class="w-18 p-4 font-bold text-sm text-grey-dark border-b border-white">Stock</th>
+                <th class="w-60 p-1 font-bold text-l text-grey-dark border-b border-white">Inventory ID</th>
+                <th class="w-80 p-1 font-bold text-l text-grey-dark border-b border-white">Shoe model</th>
+                <th class="w-18 p-1 font-bold text-l text-grey-dark border-b border-white">Stock</th>
               </tr>
             </thead>
-            <tbody id="inventory-list-<%= store.name.parameterize %>">
+            <tbody id="inventory-list-<%= store.name.parameterize %>" class="gap-4">
             </tbody>
           </table>
         </div>
