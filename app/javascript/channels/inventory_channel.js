@@ -10,7 +10,7 @@ consumer.subscriptions.create("InventoryChannel", {
   },
 
   received(data) {
-    const event = new CustomEvent("inventory-received", { detail: data });
+    const event = new CustomEvent("inventory-update", { detail: data });
     document.dispatchEvent(event);
   }
 });
