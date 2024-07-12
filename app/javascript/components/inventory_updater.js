@@ -9,7 +9,6 @@ const updateInventoryList = (data) => {
   }
 
   item.dataset.target = "list-item";
-  item.draggable = true;
 
   updateItemContent(item, data);
   updateItemStyle(item, data.stock);

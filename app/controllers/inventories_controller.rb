@@ -18,7 +18,9 @@ class InventoriesController < ApplicationController
   end
 
   def set_inventories
-    @inventories = Resources::Inventory.find(:all)
+    @inventories = Rails.cache.fetch("inventories", expires_in: 12.hours) do
+      Resources::Inventory.find(:all)
+    end
   end
 
   def set_stores
