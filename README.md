@@ -28,6 +28,8 @@ Hello and thank you for your time to checkout my exercice.
 
 
 ### Instructions
+When you're ready : You need yo lauch the API server first to enable the inventory persistence in database
+
 * For my-shoe-store :
     * Make sure you have a complete installation of Ruby on Rails with depencies
     * `brew install websocketd` to convert broadcast_inventory.rake into a websocket service
@@ -49,5 +51,5 @@ Hello and thank you for your time to checkout my exercice.
 I used RSpec to wrote the tests. For launch the test, just run `bundle exec rspec`
 
 
-### Last word
+# Last words
 I'm honored to have make this exercice for Potloc, and hope you enjoy to read and test it as much as I have take pleasure to make it. Enjoy !
