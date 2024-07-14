@@ -28,13 +28,26 @@ Hello and thank you for your time to checkout my exercice.
 
 
 ### Instructions
-* Make sure you have a complete installation of Ruby on Rails with depencies
-* `brew install websocketd` to convert broadcast_inventory.rake into a websocket service
-* `gem install foreman` to lauch multiple process
-* `bundle install`
-* Then lauch the following command : `./bin/dev`
-If you got this error `./bin/dev : permission denied`, please launch the following command line : `chmod +x ./bin/dev` and relauch `./bin/dev`
+* For my-shoe-store :
+    * Make sure you have a complete installation of Ruby on Rails with depencies
+    * `brew install websocketd` to convert broadcast_inventory.rake into a websocket service
+    * `gem install foreman` to lauch multiple process
+    * `bundle install`
+    * Then lauch the following command : `./bin/dev`
+    If you got this error `./bin/dev : permission denied`, please launch the following command line : `chmod +x ./bin/dev` and relauch `./bin/dev`
+
+* For aldo-store-api :
+    * Make sure you have a complete installation of Ruby on Rails with depencies
+    * Make sure you have PostgreSQL to allow to create a Database
+    * `rails db:create && rails db:migrate && rails db:seed` to create, migrate and seed the Database
+    * `bundle install`
+    * Then lauch the following command : `rails s`
+
 
 
 ### Test
 I used RSpec to wrote the tests. For launch the test, just run `bundle exec rspec`
+
+
+### Last word
+I'm honored to have make this exercice for Potloc, and hope you enjoy to read and test it as much as I have take pleasure to make it. Enjoy !
