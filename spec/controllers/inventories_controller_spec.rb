@@ -4,8 +4,8 @@ RSpec.describe InventoriesController, type: :controller do
   describe "GET #index" do
     context "all is ok" do
       it "return a 200 with inventories" do
-        allow(Resources::Inventory).to receive(:find).with(:all).and_return([Resources::Inventory.new(build(:inventory_attributes))])
-        allow(Resources::Store).to receive(:find).with(:all).and_return([Resources::Store.new(build(:store_attributes))])
+        allow(Resources::Inventory).to receive(:all).and_return([Resources::Inventory.new(build(:inventory_attributes))])
+        allow(Resources::Store).to receive(:all).and_return([Resources::Store.new(build(:store_attributes))])
         get :index
 
         expect(response).to have_http_status(:success)
@@ -17,9 +17,10 @@ RSpec.describe InventoriesController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       it "return a 200 and the requested updated inventory" do
-        allow(Resources::Inventory).to receive(:find).with(:all).and_return([Resources::Inventory.new(build(:inventory_attributes))])
-        allow(Resources::Store).to receive(:find).with(:all).and_return([Resources::Store.new(build(:store_attributes))])
-        inventory = Resources::Inventory.find(:all).first
+        allow(Resources::Inventory).to receive(:all).and_return([Resources::Inventory.new(build(:inventory_attributes))])
+        allow(Resources::Store).to receive(:all).and_return([Resources::Store.new(build(:store_attributes))])
+        inventory = Resources::Inventory.all.first
+        allow(Rails.cache).to receive(:fetch).with("inventories", expires_in: 12.hours).and_return([inventory])
         allow(inventory).to receive(:save).and_return(true)
 
         put :update, params: { inventory: { store: inventory.store.name, shoe: inventory.shoe.name, stock: 5 } }
