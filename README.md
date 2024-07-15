@@ -1,10 +1,11 @@
 # Technical test by Florent Gonon for Potloc
 
 Hello and thank you for your time to checkout my exercice.
+Here is our front dashboard to saw in real time the update of stocks, and graphics. To access graphics by shop, please click on the shop name from the principal dashboard.
 
 ### Different features implemented
 * A real time dashboards by store to allow the user to see live stocks update in differents Aldo's stores
-* An API to :
+* An API called with ActiveResource to :
     * GET all the inventories
     * GET all stores
     * GET all inventories for given store
@@ -16,7 +17,6 @@ Hello and thank you for your time to checkout my exercice.
 ### Technical stack :
 * ruby 3.1.2
 * Rails 7.0.8.4
-* SQL database
 * Foreman gem to lauch multiple process by one command line, for the good of the exercice
 * ActionCable to implement easily the websocket and handle the instant data update
 * Redis for the ActionCable adapter
@@ -28,23 +28,14 @@ Hello and thank you for your time to checkout my exercice.
 
 
 ### Instructions
-When you're ready : You need yo lauch the API server first to enable the inventory persistence in database
+**When you're ready : You need yo lauch the API server first to enable the inventory persistence in database**
 
-* For my-shoe-store :
-    * Make sure you have a complete installation of Ruby on Rails with depencies
-    * `brew install websocketd` to convert broadcast_inventory.rake into a websocket service
-    * `gem install foreman` to lauch multiple process
-    * `bundle install`
-    * Then lauch the following command : `./bin/dev`
-    If you got this error `./bin/dev : permission denied`, please launch the following command line : `chmod +x ./bin/dev` and relauch `./bin/dev`
-
-* For aldo-store-api :
-    * Make sure you have a complete installation of Ruby on Rails with depencies
-    * Make sure you have PostgreSQL to allow to create a Database
-    * `rails db:create && rails db:migrate && rails db:seed` to create, migrate and seed the Database
-    * `bundle install`
-    * Then lauch the following command : `rails s`
-
+* Make sure you have a complete installation of Ruby on Rails with depencies
+* `brew install websocketd` to convert broadcast_inventory.rake into a websocket service
+* `gem install foreman` to lauch multiple process
+* `bundle install`
+* Then lauch the following command : `./bin/dev`
+If you got this error `./bin/dev : permission denied`, please launch the following command line : `chmod +x ./bin/dev` and relauch `./bin/dev`
 
 
 ### Test
