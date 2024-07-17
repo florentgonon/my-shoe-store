@@ -1,6 +1,7 @@
 class InventoriesController < ApplicationController
   before_action :set_inventories, :set_stores, only: [:index, :update]
   before_action :set_inventory, only: [:update]
+  before_action :set_stores, only: [:index]
 
   def index
   end

@@ -15,7 +15,8 @@ module.exports = {
       colors: {
         "light-coral": "#EE7674",
         "jade": "#08B46F",
-        "gamboge": "#EA9713"
+        "gamboge": "#EA9713",
+        "tiffany-blue": "#A2E8DD"
       }
     },
   },
@@ -23,6 +24,7 @@ module.exports = {
     "bg-light-coral",
     "bg-jade",
     "bg-gamboge",
+    "bg-tiffany-blue",
     "rounded-r-lg",
     "rounded-l-lg",
     "mb-1"
