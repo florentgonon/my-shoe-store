@@ -1,36 +1,46 @@
 <div class="container mx-auto mt-20 px-5" data-controller="inventory">
-  <%= form_for(@transfer, url: transfers_path, method: :post, html: { role: 'form'}) do |f| %>
+  <%= form_with url: transfers_path, method: :post do |f| %>
     <div class="space-y-12">
       <div class="border-b border-gray-900/10 pb-12">
-        <h2 class="text-base font-semibold leading-7 text-gray-900">Personal Information</h2>
-        <p class="mt-1 text-sm leading-6 text-gray-600">Use a permanent address where you can receive mail.</p>
+        <h2 class="text-base font-semibold leading-7 text-gray-900">New Transfer</h2>
+        <p class="mt-1 text-sm leading-6 text-gray-600">Transfer stock from store to another one</p>
 
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <div class="sm:col-span-3">
-            <label for="source_store" class="block text-sm font-medium leading-6 text-gray-900">Source Store</label>
+            <%= f.label "source_store", class: "block text-sm font-medium leading-6 text-gray-900" do %>
+              <%= "Source Store" %>
+            <% end %>
             <div class="mt-2">
-              <%= select_tag("transfer[source_store_id]", options_for_select(@stores.map { |s| [s.name, s.id] }), class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6") %>
+              <%= f.select("transfer[source_store_id]", options_for_select(@stores.map { |s| [s.name, s.id] }), class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6") %>
             </div>
           </div>
 
           <div class="sm:col-span-3">
-            <label for="destination_store" class="block text-sm font-medium leading-6 text-gray-900">Destination Store</label>
+            <%= f.label "destination_store", class: "block text-sm font-medium leading-6 text-gray-900" do %>
+              <%= "Destination store" %>
+            <% end %>
             <div class="mt-2">
-              <%= select_tag("transfer[destination_store_id]", options_for_select(@stores.map { |s| [s.name, s.id] }), class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6") %>
+              <%= f.select("transfer[destination_store_id]", options_for_select(@stores.map { |s| [s.name, s.id] }), class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6") %>
             </div>
           </div>
 
           <div class="sm:col-span-3">
-            <label for="destination_store" class="block text-sm font-medium leading-6 text-gray-900">Shoe model</label>
+            <%= f.label "shoe_model", class: "block text-sm font-medium leading-6 text-gray-900" do %>
+              <%= "Shoe model" %>
+            <% end %>
             <div class="mt-2">
-              <%= select_tag("transfer[shoe_model_id]", options_for_select(@shoes.map { |s| [s.name, s.id] }), class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6") %>
+              <%= f.select("transfer[shoe_model_id]", options_for_select(@shoes.map { |s| [s.name, s.id] }), class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6") %>
             </div>
           </div>
 
           <div class="sm:col-span-3">
-            <label for="quantity" class="block text-sm font-medium leading-6 text-gray-900">Quantity</label>
+            <%= f.label "quantity", class: "block text-sm font-medium leading-6 text-gray-900" do %>
+              <%= "Quantity" %>
+            <% end %>
             <div class="mt-2">
-              <input type="text" name="transfer[quantity]" id="quantity" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              <%= f.text_field "transfer[quantity]",
+                        class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+                        placeholder: "Quantity" %>
             </div>
           </div>
         </div>
