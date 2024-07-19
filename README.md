@@ -30,7 +30,7 @@ Here is our front dashboard to saw in real time the update of stocks, and graphi
 
 
 ### Instructions
-**When you're ready : You need yo lauch the API server first to enable the inventory persistence in database**
+## **When you're ready : You need yo lauch the API server first to enable the inventory persistence in database**
 
 * Make sure you have a complete installation of Ruby on Rails with depencies
 * `brew install websocketd` to convert broadcast_inventory.rake into a websocket service
