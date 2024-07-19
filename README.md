@@ -10,8 +10,10 @@ Here is our front dashboard to saw in real time the update of stocks, and graphi
     * GET all stores
     * GET all inventories for given store
     * PUT Update an inventory for a given shoe and store
+    * POST Create a transfer (in fact update two inventories) of shoes between two stores
 * Everytime the websocket server send a stock update, the inventory of the shoe model for the given store is update by an API call to our API
 * An interface by shop to saw three sort of graphic to display and treat data
+* An form to allow the user to transfer stock of shoe between two stores
 
 
 ### Technical stack :
