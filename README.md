@@ -19,7 +19,7 @@ Here is our front dashboard to saw in real time the update of stocks, and graphi
 ### Technical stack :
 * ruby 3.1.2
 * Rails 7.0.8.4
-* Foreman gem to lauch multiple process by one command line, for the good of the exercice
+* Figaro to handle ENV vars
 * ActionCable to implement easily the websocket and handle the instant data update
 * Redis for the ActionCable adapter
 * Hotwire Stimulus
